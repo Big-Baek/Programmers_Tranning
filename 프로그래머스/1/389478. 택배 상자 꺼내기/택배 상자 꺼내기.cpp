@@ -5,17 +5,16 @@ using namespace std;
 
 int solution(int n, int w, int num) {
 	int answer = 0;
-	int next = num;
 
-	while (next <= n)
+	while (num <= n)
 	{
-		if (next % w != 0)
+		if (num % w != 0)
 		{
-			next = next + 1 + (2 * (w - (next % w)));
+			num = num + 1 + (2 * (w - (num % w)));
 		}
 		else
 		{
-			next = next + 1;
+			num = num + 1;
 		}
 		answer++;
 	}
