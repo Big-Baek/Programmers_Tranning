@@ -28,19 +28,6 @@ void dfs(string point, string target, vector<string> words, int counting, vector
 		return;
 	}
 
-	//for (string s: words)
-	//{
-	//	if (s == point) continue;
-	//	
-	//	int count = 0;
-	//	
-	//	if (check(point, s))
-	//	{
-	//		dfs(s, target, words, ++counting, answer);
-	//	}
-
-	//}
-
 	for (int i = counting-1; i < words.size(); i++)
 	{
 		if (words[i] == point) continue;
