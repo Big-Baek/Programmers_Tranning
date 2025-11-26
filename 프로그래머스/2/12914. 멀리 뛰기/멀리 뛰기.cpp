@@ -14,9 +14,3 @@ long long solution(int n) {
 
     return dp[n];
 }
-
-int main() {
-    int n = 4;
-    cout << "멀리 뛰기 방법 수: " << solution(n) << endl;
-    return 0;
-}
