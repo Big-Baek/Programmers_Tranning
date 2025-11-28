@@ -3,30 +3,34 @@
 #include <algorithm>
 #include <unordered_map>
 
-std::string solution(std::string X, std::string Y) {
-    std::unordered_map<char, int> char_count;
-    for (char c : X) {
-        char_count[c]++;
-    }
-    
-    std::string answer = "";
-    for (char c : Y) {
-        if (char_count[c] > 0) {
-            answer += c;
-            char_count[c]--;
-        }
-    }
 
-    if (answer.empty()) {
-        return "-1";
-    }
+using namespace std;
 
-    if (std::all_of(answer.begin(), answer.end(), [answer](char c) { return c == answer[0]; })) {
-        return std::string(1, answer[0]);
+string solution(string X, string Y) {
+    string answer = "";
+    vector<char> arr;
+    unordered_map<char, int> mymap;
+
+    for (char c : X)
+    {
+        mymap[c]++;
+    }
+    for (char c : Y)
+    {
+        if (mymap[c] <= 0 )continue;
+
+            arr.push_back(c);
+            mymap[c]--;
     }
 
-    std::sort(answer.begin(), answer.end(), std::greater<char>());
+    sort(arr.begin(), arr.end(), greater<char>());
 
+    for (char c : arr)
+    {
+        answer += c;
+    }
+
+    if (arr.empty()) return "-1";
+    if (answer[0] == '0') return "0";
     return answer;
 }
-
